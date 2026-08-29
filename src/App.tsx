@@ -16,6 +16,7 @@ import DoctorList from './pages/DoctorList';
 import DoctorHome from './pages/DoctorHome';
 import DoctorAppointmentsList from './pages/DoctorAppointmentsList';
 import DoctorProfile from './pages/DoctorProfile';
+import { assets } from './assets/assets';
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -47,6 +48,14 @@ const App = () => {
       dispatch(logout());
     }
   }, [getMeQuery, getMeQuery.isSuccess, getMeQuery.isError]);
+
+  if (getMeQuery) {
+    return (
+      <div className="flex min-h-screen justify-center items-center">
+        <img className="animate-bounce" src={assets.admin_logo} />
+      </div>
+    );
+  }
 
   return (
     <BrowserRouter>
