@@ -3,7 +3,9 @@ import { store } from '../store';
 import { refreshToken } from '../utils/auth';
 import { logout, setAccessToken } from '../store/authSlice';
 
-const axiosClient = axios.create();
+const axiosClient = axios.create({
+  withCredentials: true,
+});
 
 axiosClient.interceptors.request.use(function (config) {
   const token = store.getState().auth.accessToken;
