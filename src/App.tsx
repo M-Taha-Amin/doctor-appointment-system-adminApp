@@ -49,7 +49,7 @@ const App = () => {
     }
   }, [getMeQuery, getMeQuery.isSuccess, getMeQuery.isError]);
 
-  if (getMeQuery) {
+  if (getMeQuery.isPending) {
     return (
       <div className="flex min-h-screen justify-center items-center">
         <img className="animate-bounce" src={assets.admin_logo} />
